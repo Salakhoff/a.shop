@@ -26,7 +26,10 @@ final class ProductListViewViewModel: NSObject {
                                                 createdDate: product.createdDate
                 )
                 let viewModel = ProductCollectionViewCellViewModel(productModel: productModel)
-                cellViewModels.append(viewModel)
+                if !cellViewModels.contains(viewModel) {
+                    cellViewModels.append(viewModel)
+                }
+           
             }
         }
     }

@@ -27,6 +27,7 @@
 		175F132D2A9CF2A500F6EC27 /* ProductCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F132C2A9CF2A500F6EC27 /* ProductCollectionViewCellViewModel.swift */; };
 		175F132F2A9D019F00F6EC27 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F132E2A9D019F00F6EC27 /* ProductDetailView.swift */; };
 		175F13312A9D01C700F6EC27 /* ProductDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F13302A9D01C700F6EC27 /* ProductDetailViewViewModel.swift */; };
+		175F13332A9D0E5D00F6EC27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F13322A9D0E5D00F6EC27 /* ImageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		175F132C2A9CF2A500F6EC27 /* ProductCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		175F132E2A9D019F00F6EC27 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		175F13302A9D01C700F6EC27 /* ProductDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewViewModel.swift; sourceTree = "<group>"; };
+		175F13322A9D0E5D00F6EC27 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		175F13082A9BEB5600F6EC27 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				175F13322A9D0E5D00F6EC27 /* ImageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				175F131C2A9C4E2C00F6EC27 /* ShopError.swift in Sources */,
 				175F132B2A9CF1E000F6EC27 /* CustomLabel.swift in Sources */,
+				175F13332A9D0E5D00F6EC27 /* ImageManager.swift in Sources */,
 				175F131E2A9CA5B700F6EC27 /* GetAllProductsResponse.swift in Sources */,
 				175F132F2A9D019F00F6EC27 /* ProductDetailView.swift in Sources */,
 				175F13292A9CAEF600F6EC27 /* ProductCollectionViewCell.swift in Sources */,

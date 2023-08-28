@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ProductCollectionViewCellViewModel {
+final class ProductCollectionViewCellViewModel: Hashable, Equatable {
     
     let productModel: ProductModel
     
@@ -20,14 +20,22 @@ final class ProductCollectionViewCellViewModel {
             completion(.failure(URLError(.badURL)))
             return
         }
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data, error == nil else {
-                completion(.failure(error ?? URLError(.badServerResponse)))
-                return
-            }
-            completion(.success(data))
-        }
-        task.resume()
+        ImageManager.shared.dowloadImage(url, completion: completion)
+    }
+    
+    // MARK: - Hashable
+    
+    static func == (lhs: ProductCollectionViewCellViewModel, rhs: ProductCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(productModel.title)
+        hasher.combine(productModel.price)
+        hasher.combine(productModel.location)
+        hasher.combine(productModel.createdDate)
+        hasher.combine(productModel.imageURL)
     }
 }
+
+
