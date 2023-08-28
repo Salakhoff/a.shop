@@ -1,5 +1,5 @@
 //
-//  DetailProduct.swift
+//  DetailProductModel.swift
 //  a.shop
 //
 //  Created by Ильфат Салахов on 28.08.2023.
@@ -9,7 +9,7 @@ import Foundation
 
 import Foundation
 
-struct DetailModel {
+struct DetailProductModel {
     let title: String
     let price: String
     let location: String

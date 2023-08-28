@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProductListViewViewModelDelegate: AnyObject {
     func didLoadInitialProducts()
+    func didSelectProduct(_ product: Advertisement)
 }
 
 final class ProductListViewViewModel: NSObject {
@@ -73,6 +74,12 @@ extension ProductListViewViewModel: UICollectionViewDataSource, UICollectionView
             width: width,
             height: width * 1.5
         )
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let product = products[indexPath.row]
+        delegate?.didSelectProduct(product)
     }
 }
 

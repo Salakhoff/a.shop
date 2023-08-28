@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol ProductListViewDelegate: AnyObject {
+    func shopProductListView(
+        _ productListView: ProductListView,
+        didSelect product: Advertisement
+    )
+}
+
 class ProductListView: UIView {
+    
+    public weak var delegate: ProductListViewDelegate?
     
     private let viewModel = ProductListViewViewModel()
     
@@ -67,6 +76,10 @@ class ProductListView: UIView {
 }
 
 extension ProductListView: ProductListViewViewModelDelegate {
+    func didSelectProduct(_ product: Advertisement) {
+        delegate?.shopProductListView(self, didSelect: product)
+    }
+    
     func didLoadInitialProducts() {
         spinner.stopAnimating()
         collectionView.isHidden = false
