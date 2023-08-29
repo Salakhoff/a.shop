@@ -5,7 +5,7 @@
 //  Created by Ильфат Салахов on 28.08.2023.
 //
 
-import Foundation
+import UIKit
 
 final class ProductDetailViewViewModel {
     
@@ -29,5 +29,50 @@ final class ProductDetailViewViewModel {
     
     public func title() -> String {
         return product.title
+    }
+    
+    // MARK: - Layouts
+    public func createPhotoSectionLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+        )
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0,
+                                                        leading: 0,
+                                                        bottom: 10,
+                                                        trailing: 0)
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(0.5)
+            ),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        return section
+    }
+    
+    public func createInfoSectionLayout() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0)
+            )
+        )
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2,
+                                                        leading: 2,
+                                                        bottom: 2,
+                                                        trailing: 2)
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .absolute(40)
+            ),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        return section
     }
 }
