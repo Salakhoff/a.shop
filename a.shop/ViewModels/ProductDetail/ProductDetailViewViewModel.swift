@@ -11,15 +11,27 @@ final class ProductDetailViewViewModel {
     
     private let product: Advertisement
     
-    enum SectionType: CaseIterable {
-        case photo
-        case info
+    enum SectionType {
+        case photo(viewModel: ProductPhotoCollectionViewCellViewModel)
+        case info(viewModel: [ProductInfoCollectionViewCellViewModel])
     }
     
-    public let sections = SectionType.allCases
+    public var sections: [SectionType] = []
     
     init(product: Advertisement) {
         self.product = product
+        setupSections()
+    }
+    
+    private func setupSections() {
+        sections = [
+            .photo(viewModel: .init()),
+            .info(viewModel: [
+                .init(),
+                .init(),
+                .init()
+            ])
+        ]
     }
     
     private var requestUrl: URL? {

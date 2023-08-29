@@ -62,22 +62,37 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch section {
-        case 0: return 1
-        case 1: return 7
-        default: return 1
+        let sectionType = viewModel.sections[section]
+        switch sectionType {
+        case .photo:
+            return 1
+        case .info(let viewModel):
+            return viewModel.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        if indexPath.section == 0 {
-            cell.backgroundColor = .green
-        } else if indexPath.section == 1 {
+        
+        let sectionType = viewModel.sections[indexPath.section]
+        switch sectionType {
+        case .photo(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ProductPhotoCollectionViewCell.cellIdentifer,
+                for: indexPath) as? ProductPhotoCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: viewModel)
             cell.backgroundColor = .red
-        } else {
-            cell.backgroundColor = .blue
+            return cell
+        case .info(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: ProductInfoCollectionViewCell.cellIdentifer,
+                for: indexPath) as? ProductInfoCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(with: viewModel[indexPath.row])
+            cell.backgroundColor = .green
+            return cell
         }
-        return cell
     }
 }

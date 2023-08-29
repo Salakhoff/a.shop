@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct DetailProductModel {
     let title: String
     let price: String
