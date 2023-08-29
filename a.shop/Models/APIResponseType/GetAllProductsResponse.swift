@@ -11,7 +11,6 @@ struct GetAllProductsResponse: Codable {
     let advertisements: [Advertisement]
 }
 
-// MARK: - Advertisement
 struct Advertisement: Codable {
     let id: String
     let title: String
