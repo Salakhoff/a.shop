@@ -17,10 +17,6 @@ final class ShopImageLoader {
     /// Constructor
     private init() {}
 
-    /// Get image content with URl
-    /// - Parameters:
-    ///   - url: Source url
-    ///   - completion: Callback
     public func downloadImage(_ url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         let key = url.absoluteString as NSString
         if let data = imageDataCache.object(forKey: key) {
