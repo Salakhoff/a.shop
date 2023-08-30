@@ -8,13 +8,13 @@
 import Foundation
 
 struct DetailProductModel {
-    let title: String
-    let price: String
-    let location: String
-    let imageURL: String
-    let createdDate: String
-    let description: String
-    let email: String
-    let phoneNumber: String
-    let address: String
+    var title: String = ""
+    var price: String = ""
+    var location: String = ""
+    var imageURL: String = ""
+    var createdDate: String = ""
+    var description: String = ""
+    var email: String = ""
+    var phoneNumber: String = ""
+    var address: String = ""
 }

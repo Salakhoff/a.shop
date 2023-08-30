@@ -34,13 +34,14 @@ final class DetailViewController: UIViewController {
             action: #selector(didTapShare)
         )
         setConstraints()
+        self.viewModel.fetchProductInfo()
         detailView.collectionView?.delegate = self
         detailView.collectionView?.dataSource = self
     }
     
     @objc
     func didTapShare() {
-        
+        //TODO: Тут реализация поделиться
     }
 }
 
@@ -82,7 +83,6 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
                 return UICollectionViewCell()
             }
             cell.configure(with: viewModel)
-            cell.backgroundColor = .red
             return cell
         case .info(let viewModel):
             guard let cell = collectionView.dequeueReusableCell(
@@ -91,7 +91,6 @@ extension DetailViewController: UICollectionViewDataSource, UICollectionViewDele
                 return UICollectionViewCell()
             }
             cell.configure(with: viewModel[indexPath.row])
-            cell.backgroundColor = .green
             return cell
         }
     }

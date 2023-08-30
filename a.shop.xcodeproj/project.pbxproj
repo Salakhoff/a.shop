@@ -33,6 +33,7 @@
 		175F133D2A9E59C800F6EC27 /* ProductInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F133C2A9E59C800F6EC27 /* ProductInfoCollectionViewCell.swift */; };
 		175F13412A9E5A6300F6EC27 /* ProductPhotoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F13402A9E5A6300F6EC27 /* ProductPhotoCollectionViewCellViewModel.swift */; };
 		175F13432A9E5A6C00F6EC27 /* ProductInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F13422A9E5A6C00F6EC27 /* ProductInfoCollectionViewCellViewModel.swift */; };
+		175F13452A9F54FC00F6EC27 /* ShopImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175F13442A9F54FC00F6EC27 /* ShopImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		175F133C2A9E59C800F6EC27 /* ProductInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		175F13402A9E5A6300F6EC27 /* ProductPhotoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPhotoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		175F13422A9E5A6C00F6EC27 /* ProductInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		175F13442A9F54FC00F6EC27 /* ShopImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				175F13322A9D0E5D00F6EC27 /* ImageManager.swift */,
+				175F13442A9F54FC00F6EC27 /* ShopImageLoader.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				175F133B2A9E59A500F6EC27 /* ProductPhotoCollectionViewCell.swift in Sources */,
 				175F131A2A9BEEB100F6EC27 /* ShopEndpoint.swift in Sources */,
 				175F13202A9CA5F500F6EC27 /* DetailProduct.swift in Sources */,
+				175F13452A9F54FC00F6EC27 /* ShopImageLoader.swift in Sources */,
 				175F13312A9D01C700F6EC27 /* ProductDetailViewViewModel.swift in Sources */,
 				175F132D2A9CF2A500F6EC27 /* ProductCollectionViewCellViewModel.swift in Sources */,
 				175F12F82A9BE9AE00F6EC27 /* MainViewController.swift in Sources */,
