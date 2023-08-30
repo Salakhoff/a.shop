@@ -48,7 +48,7 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: ProductCollectionViewCellViewModel) {
-        self.productPlaceLabel.text = viewModel.productModel.title
+        self.productPlaceLabel.text = viewModel.productModel.location
         self.productPriceLabel.text = viewModel.productModel.price
         self.productTitleLabel.text = viewModel.productModel.title
         self.productDateSellLabel.text = viewModel.productModel.createdDate

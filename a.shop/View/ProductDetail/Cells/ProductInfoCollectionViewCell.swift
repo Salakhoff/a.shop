@@ -10,20 +10,19 @@ import UIKit
 final class ProductInfoCollectionViewCell: UICollectionViewCell {
     static let cellIdentifer = "ProductInfoCollectionViewCell"
     
-    private let titleLabel = CustomLabel(size: 15, weight: .medium, color: .systemGray2)
-    private let valueLabel = CustomLabel(size: 15, weight: .medium)
+    private var titleLabel = CustomLabel(size: 15, weight: .medium, color: .systemGray2)
+    private var valueLabel = CustomLabel(size: 15, weight: .medium)
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 2
+        stackView.spacing = 1
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.layer.cornerRadius = 5
         
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(valueLabel)
@@ -45,11 +44,15 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-//        valueLabel.text = nil
-//        titleLabel.text = nil
+        valueLabel.text = nil
+        titleLabel.text = nil
     }
     
     public func configure(with viewModel: ProductInfoCollectionViewCellViewModel) {
         
+        titleLabel.text = viewModel.title
+        valueLabel.text = viewModel.value
+        
+        valueLabel.font = viewModel.infoType.setupFontValue
     }
 }

@@ -22,21 +22,20 @@ final class ProductDetailViewViewModel {
     
     init(product: Advertisement) {
         self.product = product
-        setupSections()
     }
     
     public func setupSections() {
         sections = [
             .photo(viewModel: .init(imageUrl: URL(string: detailProduct.imageURL))),
             .info(viewModel: [
-                .init(title: "", value: detailProduct.title),
-                .init(title: "Цена", value: detailProduct.price),
-                .init(title: "Город", value: detailProduct.location),
-                .init(title: "Дата объявления", value: detailProduct.createdDate),
-                .init(title: "Описание", value: detailProduct.description),
-                .init(title: "Номер для связи", value: detailProduct.phoneNumber),
-                .init(title: "Точный адрес", value: detailProduct.address),
-                .init(title: "Почта для связи", value: detailProduct.email)
+                .init(value: detailProduct.price, infoType: .price),
+                .init(value: detailProduct.title, infoType: .title),
+                .init(value: detailProduct.description, infoType: .description),
+                .init(value: detailProduct.location, infoType: .location),
+                .init(value: detailProduct.address, infoType: .address),
+                .init(value: detailProduct.phoneNumber, infoType: .phoneNumber),
+                .init(value: detailProduct.email, infoType: .email),
+                .init(value: detailProduct.createdDate, infoType: .createdDate),
             ])
         ]
     }
@@ -72,10 +71,6 @@ final class ProductDetailViewViewModel {
                 print(String(describing: error))
             }
         }
-    }
-    
-    public func title() -> String {
-        return product.title
     }
     
     // MARK: - Layouts
@@ -115,7 +110,7 @@ final class ProductDetailViewViewModel {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(0.1)
+                heightDimension: .fractionalHeight(0.08)
             ),
             subitems: [item]
         )
