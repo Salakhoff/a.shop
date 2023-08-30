@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class ProductPhotoCollectionViewCell: UICollectionViewCell {
     
@@ -38,17 +39,7 @@ final class ProductPhotoCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Methods
     func configure(with viewModel: ProductPhotoCollectionViewCellViewModel) {
-        viewModel.fetchImage { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    self.productImageView.image = UIImage(data: data)
-                }
-            case .failure :
-                break
-            }
-        }
+        productImageView.sd_setImage(with: viewModel.imageUrl)
     }
 }
 

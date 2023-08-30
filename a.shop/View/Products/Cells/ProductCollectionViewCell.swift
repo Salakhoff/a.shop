@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class ProductCollectionViewCell: UICollectionViewCell {
     
@@ -57,19 +58,8 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         self.productPriceLabel.text = viewModel.productModel.price
         self.productTitleLabel.text = viewModel.productModel.title
         self.productDateSellLabel.text = viewModel.productModel.formattedDate
-        
-        viewModel.fetchImage { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self?.productImageView.image = image
-                }
-            case .failure(let error):
-                print(String(describing: error))
-                break
-            }
-        }
+        self.productImageView.sd_setImage(with: viewModel.productModel.imageURL)
+
     }
     
     required init?(coder: NSCoder) {
