@@ -58,15 +58,40 @@ final class ProductInfoCollectionViewCellViewModel {
         }
     }
     
-    public var title: String {
+    public var displayTitle: String {
         self.infoType.displayTitle
+    }
+    
+    public var setipFontValue: UIFont {
+        self.infoType.setupFontValue
     }
     
     public var displayValue: String {
         if value.isEmpty {
             return "None"
         }
+        
+        if self.infoType == .createdDate,
+           let formatDate = formatDateString(value) {
+            return formatDate
+        }
         return value
+    }
+}
+
+extension ProductInfoCollectionViewCellViewModel {
+    func formatDateString(_ dateString: String) -> String? {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        
+        if let date = inputFormatter.date(from: dateString) {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "dd MMMM yyyy"
+            
+            return outputFormatter.string(from: date)
+        }
+        
+        return nil
     }
 }
 

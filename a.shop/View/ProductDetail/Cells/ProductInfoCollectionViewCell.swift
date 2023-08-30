@@ -50,9 +50,10 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
     
     public func configure(with viewModel: ProductInfoCollectionViewCellViewModel) {
         
-        titleLabel.text = viewModel.title
-        valueLabel.text = viewModel.value
+        titleLabel.text = viewModel.displayTitle
+        valueLabel.text = viewModel.displayValue
         
-        valueLabel.font = viewModel.infoType.setupFontValue
+        valueLabel.font = viewModel.setipFontValue
     }
+    
 }

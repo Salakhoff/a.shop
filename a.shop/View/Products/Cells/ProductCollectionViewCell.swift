@@ -51,7 +51,7 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         self.productPlaceLabel.text = viewModel.productModel.location
         self.productPriceLabel.text = viewModel.productModel.price
         self.productTitleLabel.text = viewModel.productModel.title
-        self.productDateSellLabel.text = viewModel.productModel.createdDate
+        self.productDateSellLabel.text = viewModel.productModel.formattedDate
         
         viewModel.fetchImage { [weak self] result in
             switch result {

@@ -30,12 +30,12 @@ final class ProductDetailViewViewModel {
             .info(viewModel: [
                 .init(value: detailProduct.price, infoType: .price),
                 .init(value: detailProduct.title, infoType: .title),
+                .init(value: detailProduct.createdDate, infoType: .createdDate),
                 .init(value: detailProduct.description, infoType: .description),
                 .init(value: detailProduct.location, infoType: .location),
                 .init(value: detailProduct.address, infoType: .address),
                 .init(value: detailProduct.phoneNumber, infoType: .phoneNumber),
                 .init(value: detailProduct.email, infoType: .email),
-                .init(value: detailProduct.createdDate, infoType: .createdDate),
             ])
         ]
     }
