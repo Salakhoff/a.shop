@@ -9,22 +9,26 @@ import UIKit
 
 final class ProductDetailViewViewModel {
     
-    private let product: Advertisement
-    
-    private var detailProduct =  DetailProductModel()
-    
+    // MARK: - SectionTypeEnum
     enum SectionType {
         case photo(viewModel: ProductPhotoCollectionViewCellViewModel)
         case info(viewModel: [ProductInfoCollectionViewCellViewModel])
     }
     
+    // MARK: - Properties
+    private let product: Advertisement
+    
+    private var detailProduct =  DetailProductModel()
+    
     public var sections: [SectionType] = []
     
+    // MARK: Init
     init(product: Advertisement) {
         self.product = product
     }
     
-    public func setupSections() {
+    // MARK: - Methods
+    func setupSections() {
         sections = [
             .photo(viewModel: .init(imageUrl: URL(string: detailProduct.imageURL))),
             .info(viewModel: [
@@ -40,12 +44,13 @@ final class ProductDetailViewViewModel {
         ]
     }
     
+    // MARK: - FetchProductInfo
     private var requestUrl: URL? {
         let url = ShopRequest(endpoint: .details, pathComponents: [String(product.id)])
         return url.url
     }
     
-    public func fetchProductInfo() {
+    func fetchProductInfo() {
         guard let url = requestUrl,
               let request = ShopRequest(url: url) else {
             print("Failed to create")
@@ -74,7 +79,7 @@ final class ProductDetailViewViewModel {
     }
     
     // MARK: - Layouts
-    public func createPhotoSectionLayout() -> NSCollectionLayoutSection {
+    func createPhotoSectionLayout() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -96,7 +101,7 @@ final class ProductDetailViewViewModel {
         return section
     }
     
-    public func createInfoSectionLayout() -> NSCollectionLayoutSection {
+    func createInfoSectionLayout() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -110,7 +115,7 @@ final class ProductDetailViewViewModel {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(0.08)
+                heightDimension: .fractionalHeight(0.09)
             ),
             subitems: [item]
         )

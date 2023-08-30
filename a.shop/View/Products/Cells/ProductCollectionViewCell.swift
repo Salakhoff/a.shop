@@ -9,6 +9,10 @@ import UIKit
 
 final class ProductCollectionViewCell: UICollectionViewCell {
     
+    // MARK: -Static property
+    static let cellIdentifier = "ProductCollectionViewCell"
+    
+    // MARK: -Outlets
     private let productImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -30,14 +34,14 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
-    static let cellIdentifier = "ProductCollectionViewCell"
-    
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
         setupSubviews()
     }
     
+    // MARK: PrepareForReuse
     override func prepareForReuse() {
         super.prepareForReuse()
         productImageView.image = nil
@@ -47,7 +51,8 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         productDateSellLabel.text = nil
     }
     
-    public func configure(with viewModel: ProductCollectionViewCellViewModel) {
+    // MARK: - Methods
+    func configure(with viewModel: ProductCollectionViewCellViewModel) {
         self.productPlaceLabel.text = viewModel.productModel.location
         self.productPriceLabel.text = viewModel.productModel.price
         self.productTitleLabel.text = viewModel.productModel.title
@@ -74,7 +79,7 @@ final class ProductCollectionViewCell: UICollectionViewCell {
 
 // MARK: - SetupSubviews
 private extension ProductCollectionViewCell {
-    private func setupSubviews() {
+    func setupSubviews() {
         contentView.backgroundColor = .secondarySystemBackground
         
         stackView.addArrangedSubview(productTitleLabel)
@@ -84,7 +89,7 @@ private extension ProductCollectionViewCell {
         
         contentView.addSubview(stackView)
         contentView.addSubview(productImageView)
-       
+        
         setConstraints()
     }
     

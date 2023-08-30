@@ -44,7 +44,6 @@ final class DetailViewController: UIViewController {
     }
 }
 
-
 extension DetailViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([

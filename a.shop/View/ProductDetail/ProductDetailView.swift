@@ -9,10 +9,12 @@ import UIKit
 
 final class ProductDetailView: UIView {
     
-    public var collectionView: UICollectionView?
+    // MARK: - Properties
+    var collectionView: UICollectionView?
     
     private var viewModel: ProductDetailViewViewModel
     
+    // MARK: - Outlets
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.hidesWhenStopped = true
@@ -20,37 +22,18 @@ final class ProductDetailView: UIView {
         return spinner
     }()
     
+    // MARK: - Init
     init(frame: CGRect, viewModel: ProductDetailViewViewModel) {
         self.viewModel = viewModel
         super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .systemBackground
-        let collectionView = createCollectionView()
-        self.collectionView = collectionView
-        addSubview(spinner)
-        addSubview(collectionView)
-        setConstraints()
+        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setConstraints() {
-        guard let collectionView else { return }
-        NSLayoutConstraint.activate([
-            spinner.heightAnchor.constraint(equalToConstant: 100),
-            spinner.widthAnchor.constraint(equalToConstant: 100),
-            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
-            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-    
+    // MARK: - Methods
     private func createCollectionView() -> UICollectionView {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             return self.createSection(for: sectionIndex)
@@ -77,6 +60,33 @@ final class ProductDetailView: UIView {
         case .info:
             return viewModel.createInfoSectionLayout()
         }
+    }
+}
 
+// MARK: - SetupView
+private extension ProductDetailView {
+    func setupView() {
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .systemBackground
+        let collectionView = createCollectionView()
+        self.collectionView = collectionView
+        addSubview(spinner)
+        addSubview(collectionView)
+        setConstraints()
+    }
+    
+    func setConstraints() {
+        guard let collectionView else { return }
+        NSLayoutConstraint.activate([
+            spinner.heightAnchor.constraint(equalToConstant: 100),
+            spinner.widthAnchor.constraint(equalToConstant: 100),
+            spinner.centerXAnchor.constraint(equalTo: centerXAnchor),
+            spinner.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 }

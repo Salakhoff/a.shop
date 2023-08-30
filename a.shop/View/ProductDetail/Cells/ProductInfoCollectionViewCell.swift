@@ -8,10 +8,13 @@
 import UIKit
 
 final class ProductInfoCollectionViewCell: UICollectionViewCell {
+    
+    // MARK: - Static Properties
     static let cellIdentifer = "ProductInfoCollectionViewCell"
     
-    private var titleLabel = CustomLabel(size: 15, weight: .medium, color: .systemGray2)
-    private var valueLabel = CustomLabel(size: 15, weight: .medium)
+    // MARK: - Outlets
+    private var titleLabel = CustomLabel(size: 15, weight: .regular, color: .systemGray2)
+    private var valueLabel = CustomLabel(size: 15, weight: .regular)
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -21,25 +24,14 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
     
+    // MARK: - Init and override methods
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(valueLabel)
-        contentView.addSubview(stackView)
-        setupConstraints()
+        setupCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-        ])
     }
     
     override func prepareForReuse() {
@@ -48,6 +40,7 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
         titleLabel.text = nil
     }
     
+    // MARK: - Methods
     public func configure(with viewModel: ProductInfoCollectionViewCellViewModel) {
         
         titleLabel.text = viewModel.displayTitle
@@ -56,4 +49,21 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
         valueLabel.font = viewModel.setipFontValue
     }
     
+}
+
+private extension ProductInfoCollectionViewCell {
+    func setupCell() {
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(valueLabel)
+        contentView.addSubview(stackView)
+        setupConstraints()
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+        ])
+    }
 }
