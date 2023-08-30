@@ -17,6 +17,9 @@ final class CustomLabel: UILabel {
         self.init()
         self.font = UIFont.systemFont(ofSize: size, weight: weight)
         self.textColor = color
+        self.numberOfLines = 2
+        self.minimumScaleFactor = 0.9
+        self.adjustsFontSizeToFitWidth = true
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     

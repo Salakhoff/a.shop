@@ -26,7 +26,6 @@ final class ProductCollectionViewCell: UICollectionViewCell {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .equalSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -96,7 +95,7 @@ private extension ProductCollectionViewCell {
             productImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             productImageView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -3),
             
-            productTitleLabel.heightAnchor.constraint(equalToConstant: 27),
+            productTitleLabel.heightAnchor.constraint(equalToConstant: 50),
             productPriceLabel.heightAnchor.constraint(equalToConstant: 25),
             productPlaceLabel.heightAnchor.constraint(equalToConstant: 20),
             productDateSellLabel.heightAnchor.constraint(equalToConstant: 20),

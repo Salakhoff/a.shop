@@ -115,7 +115,7 @@ final class ProductDetailViewViewModel {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(40)
+                heightDimension: .fractionalHeight(0.1)
             ),
             subitems: [item]
         )

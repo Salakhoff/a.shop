@@ -10,10 +10,25 @@ import UIKit
 final class ProductInfoCollectionViewCell: UICollectionViewCell {
     static let cellIdentifer = "ProductInfoCollectionViewCell"
     
+    private let titleLabel = CustomLabel(size: 15, weight: .medium, color: .systemGray2)
+    private let valueLabel = CustomLabel(size: 15, weight: .medium)
+    
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 2
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .red
         contentView.layer.cornerRadius = 5
+        
+        stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(valueLabel)
+        contentView.addSubview(stackView)
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -22,12 +37,16 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
+            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
         ])
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+//        valueLabel.text = nil
+//        titleLabel.text = nil
     }
     
     public func configure(with viewModel: ProductInfoCollectionViewCellViewModel) {
