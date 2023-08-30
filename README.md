@@ -3,6 +3,8 @@
 ### Тестовое задание Авито
 
 ![result](https://github.com/Salakhoff/a.shop/assets/137751906/a4dbae44-b4e4-4301-b2cd-ecca716b53b8)
+
+
 ![Simulator Screenshot - iPhone 14 Pro Max - 2023-08-31 at 02 53 36](https://github.com/Salakhoff/a.shop/assets/137751906/c9213351-70f3-4c2f-8470-2d376ec1da06)
 ![Simulator Screenshot - iPhone 14 Pro Max - 2023-08-31 at 02 53 40](https://github.com/Salakhoff/a.shop/assets/137751906/825f26df-e8b3-4971-b77f-54396809bd38)
 
