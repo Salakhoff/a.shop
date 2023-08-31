@@ -23,10 +23,10 @@ final class ProductCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let productTitleLabel = CustomLabel(size: 15, weight: .medium, color: .darkGray)
-    private let productPriceLabel = CustomLabel(size: 15, weight: .semibold, color: .darkGray)
-    private let productPlaceLabel = CustomLabel(size: 13, weight: .light, color: .systemGray)
-    private let productDateSellLabel = CustomLabel(size: 13, weight: .light, color: .systemGray)
+    private let productTitleLabel = CustomLabel(size: 15, weight: .medium, color: .label)
+    private let productPriceLabel = CustomLabel(size: 15, weight: .semibold, color: .label)
+    private let productPlaceLabel = CustomLabel(size: 13, weight: .light, color: .label)
+    private let productDateSellLabel = CustomLabel(size: 13, weight: .light, color: .label)
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()

@@ -14,7 +14,7 @@ final class ProductInfoCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Outlets
     private var titleLabel = CustomLabel(size: 15, weight: .regular, color: .systemGray2)
-    private var valueLabel = CustomLabel(size: 15, weight: .regular)
+    private var valueLabel = CustomLabel(size: 15, weight: .regular, color: .label)
     
     private let stackView: UIStackView = {
         let stackView = UIStackView()
